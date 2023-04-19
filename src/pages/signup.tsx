@@ -7,8 +7,35 @@ import * as Components from './../components/components'
 const SignUp = () =>{
 
 
-    const [username, setUser] = React.useState("") 
-    const [password, setPass] = React.useState("") 
+    const [username, setUser] = React.useState(String) 
+    const [password, setPass] = React.useState(String)
+    const [email, setEmail] = React.useState(String)
+    const [phone, setPhone] = React.useState(String)
+    const [name, setName] = React.useState(String)
+    const [date, setDate] = React.useState(Date)
+    const [btn , setbtn] : any = React.useState({
+        type : "button" , 
+        text : "Next"
+    })
+    
+    
+    const [Inps, setInps] = React.useState(
+    
+    <Components.Inps.FrstFields
+        
+        Name={name}
+        onName={(e:any)=>{
+            setName(e.target.value)
+        }}
+        Username={username}
+        onUser={(e:any)=>{
+            setUser(e.target.value)
+        }}
+        Date={date}
+        onDate={(e:any)=>{
+            setDate(e.target.value)
+        }}
+    />)
     return (
         <div className='w-full h-screen bg-dark flex '>
             <aside className='h-full w-2/5 bg-purple loginTablet:flex flex-col items-center justify-between py-2 hidden'> 
@@ -36,25 +63,46 @@ const SignUp = () =>{
                     <p className='text-white font-bold p-2 '>Create Account</p>
                 </div>
                 <div className='w-1/2  h-auto '>
-                    <ChakraUI.FormControl className='flex flex-col gap-y-4 items-leftr'>
+                    <ChakraUI.FormControl className='flex flex-col gap-y-4 items-leftr' onSubmit={()=>{
+                        alert("Submit")
+                    }}>
                         <p className='text-white font-bold text-3xl pb-5'>SignUp</p>
-                        <Components.Input Type="email" Placeholder="Full Name" Class="w-full h-auto"
-                            
-                        />
-                        <Components.Input Type="email" Placeholder="Username" Class="w-full h-auto"
-                            
-                        />
-
-                        <Components.Input Type="date"  Class="w-full h-auto text-white"
-                            
-                            />
+                            {
+                                Inps
+                            }
                         <div className='w-full flex flex-row justify-end '>
                             <ChakraUI.Button 
                             onClick={()=>{
-                                console.log(username, password)
+                                
+                                if(Inps.type.name == "FrstFields"){
+                                    setInps(<
+                                        Components.Inps.ScndFields
+                                        Email={email}
+                                        OneEmail={(e:any)=>{
+                                            setEmail(e.target.value)
+                                        }}
+                                        Phone={phone}
+                                        OnePhone={(e:any)=>{
+                                            setPhone(e.target.value)
+                                        }}
+                                        Password={password}
+                                        OnePass={(e:any)=>{
+                                            setPass(e.target.value)
+                                        }}
+                                        
+                                        />)
+                                    setbtn({
+                                        type : "submit" , 
+                                        text : "Sign Up"
+                                    })
+                                }else{
+                                    console.log("Done")
+                                }
                             }}
-                            className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl'>
-                                Go Ahead 
+                            className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl' type={btn.type}>
+                                {
+                                    btn.text
+                                }
                             </ChakraUI.Button>
                         </div>
                     </ChakraUI.FormControl>
