@@ -1,6 +1,11 @@
 import * as React from 'react'
 import * as SVG from './../components/svg'
 import * as  Router from 'react-router-dom'
+
+import * as ChakraUI from '@chakra-ui/react'
+
+
+import * as Components from './../components/components'
 const SignIn = () =>{
     return (
         <div className='w-full h-screen bg-dark flex '>
@@ -24,9 +29,29 @@ const SignIn = () =>{
                     </p>
                 </div>
             </aside>
-            <aside className='w-2/3 h-full '>
+            <aside className='w-2/3 h-full flex flex-col items-center justify-between py-2 pb-5'>
+                <div className='w-full h-auto flex'>
+                    <p className='text-white font-bold p-2 '>Welcome Back</p>
+                </div>
+                <div className='w-1/2  h-auto '>
+                    <ChakraUI.FormControl className='flex flex-col gap-y-4 items-leftr'>
+                        <p className='text-white font-bold text-3xl pb-5'>SignIn</p>
+                        <Components.Input Type="email" Placeholder="Email Or Username" Class="w-full h-auto" />
+                        <Components.Input Type="password" Placeholder="Password" Class="w-full h-auto" />
+                        <div className='w-full flex flex-row justify-between '>
+                            <Router.Link to={""} className='text-white underline text-sm py-2 '>Forgot Password ?</Router.Link>
+                            <ChakraUI.Button className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl'>
+                                SignIn 
+                            </ChakraUI.Button>
+                        </div>
+                    </ChakraUI.FormControl>
+                </div>
 
-
+                    <Components.Omsg>
+                        <p className='text-white text-sm'>Don't Have An Account ? &nbsp;
+                            <Router.Link to={""} className='text-white underline text-sm py-2 font-bold'>Create One</Router.Link>
+                        </p>
+                    </Components.Omsg>
             </aside>
         </div>
     )
