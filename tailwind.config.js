@@ -21,7 +21,8 @@ module.exports = {
       },
 
       colors: {
-        
+          dark : "#1e1e20",
+          purple : "#962134"
       },
       backgroundImage:{
       }
