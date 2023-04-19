@@ -4,7 +4,7 @@ import * as  Router from 'react-router-dom'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
 
-const SignIn = () =>{
+const SignUp = () =>{
 
 
     const [username, setUser] = React.useState("") 
@@ -33,35 +33,36 @@ const SignIn = () =>{
             </aside>
             <aside className='loginTablet:w-3/5 w-full h-full flex flex-col items-center justify-between py-2 pb-5'>
                 <div className='w-full h-auto flex'>
-                    <p className='text-white font-bold p-2 '>Welcome Back</p>
+                    <p className='text-white font-bold p-2 '>Create Account</p>
                 </div>
                 <div className='w-1/2  h-auto '>
                     <ChakraUI.FormControl className='flex flex-col gap-y-4 items-leftr'>
-                        <p className='text-white font-bold text-3xl pb-5'>SignIn</p>
-                        <Components.Input Type="email" Placeholder="Email Or Username" Class="w-full h-auto"
-                            Value={username}
-                            onChange={(e :any ) => setUser(e.target.value)}
+                        <p className='text-white font-bold text-3xl pb-5'>SignUp</p>
+                        <Components.Input Type="email" Placeholder="Full Name" Class="w-full h-auto"
+                            
                         />
-                        <Components.Input Type="password" Placeholder="Password" Class="w-full h-auto"
-                            Value={password}
-                            onChange={(e :any ) => setPass(e.target.value)}
+                        <Components.Input Type="email" Placeholder="Username" Class="w-full h-auto"
+                            
                         />
-                        <div className='w-full flex flex-row justify-between '>
-                            <Router.Link to={""} className='text-white underline text-sm py-2 '>Forgot Password ?</Router.Link>
+
+                        <Components.Input Type="date"  Class="w-full h-auto text-white"
+                            
+                            />
+                        <div className='w-full flex flex-row justify-end '>
                             <ChakraUI.Button 
                             onClick={()=>{
                                 console.log(username, password)
                             }}
                             className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl'>
-                                SignIn 
+                                Go Ahead 
                             </ChakraUI.Button>
                         </div>
                     </ChakraUI.FormControl>
                 </div>
 
                     <Components.Omsg>
-                        <p className='text-white text-sm'>Don't Have An Account ? &nbsp;
-                            <Router.Link to={"/signup"} className='text-white underline text-sm py-2 font-bold'>Create One</Router.Link>
+                        <p className='text-white text-sm'>Already Have One ? &nbsp;
+                            <Router.Link to={"/signin"} className='text-white underline text-sm py-2 font-bold'>Login</Router.Link>
                         </p>
                     </Components.Omsg>
             </aside>
@@ -70,4 +71,4 @@ const SignIn = () =>{
 }
 
 
-export default SignIn
+export default SignUp
