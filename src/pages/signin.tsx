@@ -6,10 +6,15 @@ import * as ChakraUI from '@chakra-ui/react'
 
 
 import * as Components from './../components/components'
+
+import * as Redux from 'redux'
+
+import useReduxLogin from '../utils/login.redux'
 const SignIn = () =>{
+
     return (
         <div className='w-full h-screen bg-dark flex '>
-            <aside className='h-full w-1/3 bg-purple flex flex-col items-center justify-between py-2'> 
+            <aside className='h-full w-1/3 bg-purple loginTablet:flex flex-col items-center justify-between py-2 hidden'> 
                 <div>
                     <p className='text-white font-bold p-2 text-xl'>Pigeon</p>
                 </div>
@@ -29,7 +34,7 @@ const SignIn = () =>{
                     </p>
                 </div>
             </aside>
-            <aside className='w-2/3 h-full flex flex-col items-center justify-between py-2 pb-5'>
+            <aside className='loginTablet:w-2/3 w-full h-full flex flex-col items-center justify-between py-2 pb-5'>
                 <div className='w-full h-auto flex'>
                     <p className='text-white font-bold p-2 '>Welcome Back</p>
                 </div>
