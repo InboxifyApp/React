@@ -5,6 +5,7 @@ import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
 import useSignUp from '../hooks/useSignUp'
 import check from '../utils/checks'
+import * as Toast from 'react-hot-toast'
 const SignUp = () =>{
     
     const {username,
@@ -151,12 +152,23 @@ const SignUp = () =>{
                                     else {
                                         //set
                                         
-                                        alert("Shit")
+                                       let errs = checkFstForm()
+                                        errs.map((err:any)=>{
+                                            Toast.toast.error(err)
+                                        })
+
                                     }
                                 }else{
-                                    console.log("Done")
-                                    await CreateUser()
-                                    
+                                    let errs  : any = checkScndForm()
+                                    if (!checkScndForm().length) {
+                                        await CreateUser()
+                                    }                     
+                                    else {
+                                        errs.map((err:any)=>{
+                                            Toast.toast.error(err)
+                                        })
+                                        
+                                    }               
                                 }
                             }}
                             className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl' type={btn.type}>

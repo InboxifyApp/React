@@ -50,10 +50,7 @@ const check= (fields : any )  =>{
         let errs  = []
         if (fields.email.length < 6 ) {
             setUsr("border border-red")
-
             errs.push("Invalid Email Fields")
-
-
         }
         if (fields.password.length < 6) {
             setPss("border border-red")
@@ -61,7 +58,6 @@ const check= (fields : any )  =>{
         if (fields.phone.length < 6 ) {
             setPhne("border border-red")
         }
-        //phone shoud be numbers
 
         return errs
     }
