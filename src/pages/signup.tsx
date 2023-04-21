@@ -3,16 +3,24 @@ import * as SVG from './../components/svg'
 import * as  Router from 'react-router-dom'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
-
+import useSignUp from '../hooks/useSignUp'
 const SignUp = () =>{
 
 
-    const [username, setUser] = React.useState(String) 
-    const [password, setPass] = React.useState(String)
-    const [email, setEmail] = React.useState(String)
-    const [phone, setPhone] = React.useState(String)
-    const [name, setName] = React.useState(String)
-    const [date, setDate] = React.useState(Date)
+    const {username,
+        password, 
+        email,
+        phone,
+        name,
+        date,
+        setUser,
+        setPass,
+        setEmail,
+        setPhone,
+        setName,
+        setDate, 
+        CreateUser
+    } = useSignUp()
     const [btn , setbtn] : any = React.useState({
         type : "button" , 
         text : "Next"
@@ -72,7 +80,7 @@ const SignUp = () =>{
                             }
                         <div className='w-full flex flex-row justify-end '>
                             <ChakraUI.Button 
-                            onClick={()=>{
+                            onClick={async ()=>{
                                 
                                 if(Inps.type.name == "FrstFields"){
                                     setInps(<
@@ -97,6 +105,8 @@ const SignUp = () =>{
                                     })
                                 }else{
                                     console.log("Done")
+                                    await CreateUser()
+                                    
                                 }
                             }}
                             className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl' type={btn.type}>
