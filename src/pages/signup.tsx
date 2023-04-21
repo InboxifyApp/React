@@ -4,9 +4,9 @@ import * as  Router from 'react-router-dom'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
 import useSignUp from '../hooks/useSignUp'
+import check from '../utils/checks'
 const SignUp = () =>{
-
-
+    
     const {username,
         password, 
         email,
@@ -27,21 +27,61 @@ const SignUp = () =>{
     })
     
     
-    const [Inps, setInps] = React.useState(
-    
-    <Components.Inps.FrstFields
+    const {
+
+        checkLogin
+
+        ,
+        checkFstForm,
+        checkScndForm, 
+
+        user,
+        pass,
+        phne,
+        mail,
+        nme,
+        dte, 
+        setmail,
+        setUsr,
+        setPss,
+        setPhne,
+        setNme,
+        setDte
         
+
+    } = check({
+        username : username,
+            password : password , 
+            email : email,
+            phone : phone,
+            fullname : name,
+            bday : date, 
+    })
+    const [Inps, setInps] = React.useState(
+        
+        <Components.Inps.FrstFields
+        NameBorder={nme}
+        UserBorder={user}
+        DateBorder={dte}
+        EmailBorder={mail}
+        PhoneBorder={phne}
+        PassBorder={pass}
+
         Name={name}
         onName={(e:any)=>{
             setName(e.target.value)
+            setNme("")
         }}
         Username={username}
         onUser={(e:any)=>{
             setUser(e.target.value)
+            setUsr("")
+
         }}
         Date={date}
         onDate={(e:any)=>{
             setDate(e.target.value)
+            setDte("")
         }}
     />)
     return (
@@ -83,26 +123,36 @@ const SignUp = () =>{
                             onClick={async ()=>{
                                 
                                 if(Inps.type.name == "FrstFields"){
-                                    setInps(<
-                                        Components.Inps.ScndFields
-                                        Email={email}
-                                        OneEmail={(e:any)=>{
-                                            setEmail(e.target.value)
-                                        }}
-                                        Phone={phone}
-                                        OnePhone={(e:any)=>{
-                                            setPhone(e.target.value)
-                                        }}
-                                        Password={password}
-                                        OnePass={(e:any)=>{
-                                            setPass(e.target.value)
-                                        }}
+                                    if (!checkFstForm().length) {
+                                        setInps(<
+                                            Components.Inps.ScndFields
+                                            Email={email}
+                                            OneEmail={(e:any)=>{
+                                                setEmail(e.target.value)
+                                                setmail("")
+                                            }}
+                                            Phone={phone}
+                                            OnePhone={(e:any)=>{
+                                                setPhone(e.target.value)
+                                                setPhne("")
+                                            }}
+                                            Password={password}
+                                            OnePass={(e:any)=>{
+                                                setPass(e.target.value)
+                                                setPss("")
+                                            }}
+                                            
+                                            />)
+                                        setbtn({
+                                            type : "submit" , 
+                                            text : "Sign Up"
+                                        })
+                                    }
+                                    else {
+                                        //set
                                         
-                                        />)
-                                    setbtn({
-                                        type : "submit" , 
-                                        text : "Sign Up"
-                                    })
+                                        alert("Shit")
+                                    }
                                 }else{
                                     console.log("Done")
                                     await CreateUser()

@@ -34,7 +34,6 @@ const useSignUp = () =>{
         await axios.post(target,reqBody, {
             headers : {
                 api_key : header, 
-                tst : "hello"
             },
         } ).then((res : any) =>{
             console.log(res)
