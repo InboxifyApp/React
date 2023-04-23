@@ -3,12 +3,26 @@ import * as SVG from './../components/svg'
 import * as  Router from 'react-router-dom'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
-
+import useLogin from '../hooks/useLogin'
+import * as Toast from 'react-hot-toast'
+import  check from './../utils/checks'
+import * as Cookies from 'react-cookie'
 const SignIn = () =>{
+        const [cookie, setCookie, removeCookie] = Cookies.useCookies()
 
-
-    const [username, setUser] = React.useState("") 
-    const [password, setPass] = React.useState("") 
+    const {
+        username,
+        setUser,
+        password,
+        setPassword,
+        makeAuth
+        
+    }= useLogin()
+    
+    const {checkLogin} = check({
+        username  : username , 
+        password : password ,
+    })
     return (
         <div className='w-full h-screen bg-dark flex '>
             <aside className='h-full w-2/5 bg-purple loginTablet:flex flex-col items-center justify-between py-2 hidden'> 
@@ -44,13 +58,37 @@ const SignIn = () =>{
                         />
                         <Components.Input Type="password" Placeholder="Password" Class="w-full h-auto"
                             Value={password}
-                            onChange={(e :any ) => setPass(e.target.value)}
+                            onChange={(e :any ) => setPassword(e.target.value)}
                         />
                         <div className='w-full flex flex-row justify-between '>
                             <Router.Link to={""} className='text-white underline text-sm py-2 '>Forgot Password ?</Router.Link>
                             <ChakraUI.Button 
-                            onClick={()=>{
-                                console.log(username, password)
+                            onClick={async ()=>{
+                                const checks : any = checkLogin()
+                                if (checks.length > 0) {
+                                    checks.map((check : any) => {
+                                            Toast.toast.error(check)
+                                    })
+                                } else {
+                                    await makeAuth().then((res:any) =>{
+                                        if (res.status == 200) {
+                                            setCookie('token', res.data.token)
+                                            window.location.href = '/me'
+                                        } else {
+                                            console.log(res)
+                                            Toast.toast.error(res.data)
+
+                                        }
+
+                                    }).catch((err:any) =>{
+                                        console.log(err)
+                                        Toast.toast.error(err.data)
+
+
+
+                                    })
+
+                                }      
                             }}
                             className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl'>
                                 SignIn 

@@ -12,6 +12,7 @@ const App = () =>{
         <DOMRouter.Route path="/" element={<Pages.Home/>} />
         <DOMRouter.Route path="/signin" element={<Pages.SignIn/>} />
         <DOMRouter.Route path='/signup' element={<Pages.SignUp/>} />
+        <DOMRouter.Route path='/me' element={<Pages.Me/>} />
       </DOMRouter.Routes>
 
       <Toast.Toaster

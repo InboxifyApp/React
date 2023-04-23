@@ -12,9 +12,12 @@ const check= (fields : any )  =>{
 
 
     const checkLogin = () =>{
-        if (fields.username.length < 6 ) setUsr("border border-red")  
+        let errs = []
+        if (fields.username.length < 6 ) errs.push("Invalid Username")
 
-        if (fields.password.length < 6) setPss("border border-red")
+        if (fields.password.length < 6) errs.push("Invalid Password")
+
+        return errs
 
     }
     const checkFstForm = () =>{
