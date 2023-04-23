@@ -164,18 +164,20 @@ const SignUp = () =>{
                                         await CreateUser().then(
                                             (res:any)=>{
                                             if (res) 
-                                                console.log("Results : ",res.response.data)
-                                                if (res.response.status == 200) {
+                                                console.log("Results : ",res)
+                                                if (res.status == 200) {
                                                     Toast.toast.success("Account Created Successfully")
                                                     setTimeout(() => {
                                                         window.location.href = "/signin"
                                                     }, 2000);
                                                 }
                                                 else {
-                                                    Toast.toast.error(res.response.data.length <= 40 ? res.response.data : "Something Went Wrong , Try Again")
+                                                    Toast.toast.error(res.data.length <= 40 ? res.data : "Something Went Wrong , Try Again")
                                                 }
                                             }
-                                        )
+                                        ).catch(e=>{
+                                            Toast.toast.error("Something Went Wrong , Try Again")
+                                        })
                                         
                                     }                     
                                     else {

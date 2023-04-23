@@ -31,23 +31,16 @@ const useSignUp = () =>{
 
         }
 
-        console.log(reqBody)
-        let resp : any 
+        
         const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/me`;
         const header :string = import.meta.env.VITE_API
         console.log(target)
-        await axios.post(target,reqBody, {
+        return axios.post(target,reqBody, {
             headers : {
                 api_key : header, 
             },
-        } ).then((res : any) =>{
-            resp = res 
-        }).catch((e: any) =>{
-            resp = e
+        } ).then(c => c).catch((e => e.response))
 
-        })
-
-        return resp
     }
     return {
         username,
