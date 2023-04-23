@@ -51,7 +51,7 @@ const SignUp = () =>{
         
 
     } = check({
-        username : username,
+            username : username,
             password : password , 
             email : email,
             phone : phone,
@@ -133,12 +133,12 @@ const SignUp = () =>{
                                                 setmail("")
                                             }}
                                             Phone={phone}
-                                            OnePhone={(e:any)=>{
+                                            onPhone={(e:any)=>{
                                                 setPhone(e.target.value)
                                                 setPhne("")
                                             }}
                                             Password={password}
-                                            OnePass={(e:any)=>{
+                                            onPass={(e:any)=>{
                                                 setPass(e.target.value)
                                                 setPss("")
                                             }}
@@ -161,13 +161,28 @@ const SignUp = () =>{
                                 }else{
                                     let errs  : any = checkScndForm()
                                     if (!checkScndForm().length) {
-                                        await CreateUser()
+                                        await CreateUser().then(
+                                            (res:any)=>{
+                                            if (res) 
+                                                console.log("Results : ",res.response.data)
+                                                if (res.response.status == 200) {
+                                                    Toast.toast.success("Account Created Successfully")
+                                                    setTimeout(() => {
+                                                        window.location.href = "/signin"
+                                                    }, 2000);
+                                                }
+                                                else {
+                                                    Toast.toast.error(res.response.data.length <= 40 ? res.response.data : "Something Went Wrong , Try Again")
+                                                }
+                                            }
+                                        )
+                                        
                                     }                     
                                     else {
                                         errs.map((err:any)=>{
                                             Toast.toast.error(err)
                                         })
-                                        
+
                                     }               
                                 }
                             }}

@@ -10,6 +10,8 @@ const useSignUp = () =>{
     const [phone, setPhone] = React.useState(String)
     const [name, setName] = React.useState(String)
     const [date, setDate] = React.useState(Date)
+
+    
     React.useEffect(()=>{
 
     }, [])
@@ -17,6 +19,7 @@ const useSignUp = () =>{
 
 
     const CreateUser = async () =>{
+        
         const reqBody : any = {
             username : username,
             password : password , 
@@ -27,7 +30,9 @@ const useSignUp = () =>{
 
 
         }
-        console.log(import.meta.env)
+
+        console.log(reqBody)
+        let resp : any 
         const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/me`;
         const header :string = import.meta.env.VITE_API
         console.log(target)
@@ -36,11 +41,13 @@ const useSignUp = () =>{
                 api_key : header, 
             },
         } ).then((res : any) =>{
-            console.log(res)
+            resp = res 
         }).catch((e: any) =>{
-            console.log(e)
+            resp = e
 
         })
+
+        return resp
     }
     return {
         username,
