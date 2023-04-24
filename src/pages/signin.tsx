@@ -72,7 +72,8 @@ const SignIn = () =>{
                                 } else {
                                     await makeAuth().then((res:any) =>{
                                         if (res.status == 200) {
-                                            setCookie('token', res.data.token)
+                                            //setCookie('token', res.data.token)
+                                            localStorage.setItem("token" ,res.data.token)
                                             window.location.href = '/me'
                                         } else {
                                             console.log(res)

@@ -1,17 +1,24 @@
 import * as React from 'react'
-import * as Cookies from 'react-cookie'
-
-
+import * as Cookie from 'react-cookie'
+import useToken from '../hooks/useAuth'
 const Me = () =>{
+    const [cookie, setCookie, removeCookie] = Cookie.useCookies()
 
+    const {resp, checkT} = useToken(localStorage.getItem("token")) 
+
+    React.useEffect(() => {
+        checkT()
+    }, [])
+    console.log(resp)
+    if(resp && resp != 200) {
+        //remove cookie 
+        localStorage.removeItem("token")
+        window.location.href = "/signin"
+    }
     
-
-    //get cookie 
-
-
-    return (
+        return (
         <div>
-            <h1>Me</h1>
+            <h1>heloo wol</h1>
         </div>
         )
 }
