@@ -12,7 +12,7 @@ const Me = () =>{
     React.useEffect(() => {
         getDatas()
     }, [])
-    console.log("tst" , datas)
+    console.log("tst" , datas) 
     if(datas && datas.status != 200) {
         //remove cookie 
         localStorage.removeItem("token")
@@ -27,11 +27,26 @@ const Me = () =>{
             <aside className='w-1/4 h-full bg-purple flex items-center justify-between flex-col'>
                 <div className='w-full flex items-center '>
                     <SVG.Logo  Width="100" />
-                    <p className='text-white text-bold font-bold pt-4'>{datas.datas.fullname}</p>
+                    <p className='text-white text-bold font-bold pt-4'>{
+                    datas ? datas.datas.fullname : ""
+                    }</p>
                 </div>  
-                <div className='w-full flex'>
-                    <Link to={""}className='text-white w-full py-4 bg-darg'>Home : All Clusters</Link>
+                <div className='w-full flex flex-col    '>
+                <Link to={""}className='text-white w-full py-4 bg-darg bg-[#6F0A1A] pl-4'>Home : All Clusters</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>My Clusters</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>My Account Settings</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500' >Home : All Clusters</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>API KEY & Docs</Link>
                     
+                </div>
+                <div></div>
+                <div className='pb-10'>
+                    <button className='text-purple bg-white rounded w-48 h-11 font-bold' onClick={()=>{
+                        localStorage.removeItem("token")
+                        window.location.href = "/signin"
+                    }}>
+                        Logout
+                    </button>
                 </div>
             </aside>
             <aside className='w-3/4 h-full '></aside>

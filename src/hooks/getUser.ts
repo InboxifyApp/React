@@ -6,7 +6,7 @@ import axios from 'axios'
 
 const useGetDatas = (token : any) =>{
 
-    const [datas, setDatas] : any = React.useState()
+    const [datas, setDatas] : any = React.useState(null)
     const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/me/b`;
     const header :string = import.meta.env.VITE_API
     const getDatas = async () =>{
