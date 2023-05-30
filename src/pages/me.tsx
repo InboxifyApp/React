@@ -4,6 +4,7 @@ import useToken from '../hooks/useAuth'
 import useGetDatas from '../hooks/getUser'
 import * as SVG from './../components/svg'
 import { Link } from 'react-router-dom'
+import MessagesTab from '../components/all.messages.tab'
 const Me = () =>{
     const [cookie, setCookie, removeCookie] = Cookie.useCookies()
 
@@ -49,7 +50,9 @@ const Me = () =>{
                     </button>
                 </div>
             </aside>
-            <aside className='w-3/4 h-full '></aside>
+            <aside className='w-3/4 h-full '>
+                <MessagesTab/>
+            </aside>
         </div>
         )
 }
