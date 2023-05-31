@@ -7,7 +7,10 @@ import useLogin from '../hooks/useLogin'
 import * as Toast from 'react-hot-toast'
 import  check from './../utils/checks'
 import * as Cookies from 'react-cookie'
+import dataFrame from './../assets/p.json'
+import Lottie from 'lottie-react'
 const SignIn = () =>{
+        const pRef = React.useRef()
         const [cookie, setCookie, removeCookie] = Cookies.useCookies()
 
     const {
@@ -32,7 +35,12 @@ const SignIn = () =>{
 
                 <div>
                    <div className='flex justify-center'>
-                        <SVG.Logo Width="200"/>
+                       { 
+                       //<SVG.Logo Width="200"/>
+                       }
+                       <Lottie LottieRef={pRef} animationData={dataFrame} style={{
+                        height:170
+                       }} />
                    </div>
                     <p className='text-white font-bold w-2/3 text-center m-auto'>
                         Let Us Collect Your Messages From Your Targets Or Visitors

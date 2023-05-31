@@ -6,6 +6,8 @@ import * as Components from './../components/components'
 import useSignUp from '../hooks/useSignUp'
 import check from '../utils/checks'
 import * as Toast from 'react-hot-toast'
+import Lottie from 'lottie-react'
+import dataFrame from './../assets/p.json'
 const SignUp = () =>{
     
     const {username,
@@ -85,6 +87,7 @@ const SignUp = () =>{
             setDte("")
         }}
     />)
+    const pRef= React.useRef()
     return (
         <div className='w-full h-screen bg-dark flex '>
             <aside className='h-full w-2/5 bg-purple loginTablet:flex flex-col items-center justify-between py-2 hidden'> 
@@ -94,7 +97,9 @@ const SignUp = () =>{
 
                 <div>
                    <div className='flex justify-center'>
-                        <SVG.Logo Width="200"/>
+                   <Lottie LottieRef={pRef} animationData={dataFrame} style={{
+                        height:170
+                       }} />
                    </div>
                     <p className='text-white font-bold w-2/3 text-center m-auto'>
                         Let Us Collect Your Messages From Your Targets Or Visitors
