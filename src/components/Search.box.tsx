@@ -22,8 +22,11 @@ const SearchBox = ({...props}) =>{
                 <button className='text-white flex items-center justify-center w-40 bg-purple rounded ml-2'>Search</button>
             </ChakraUI.FormControl> 
 
-            <div className='w-full h-auto '>
-
+            <div className='w-full h-auto pl-10 pt-10 flex items-center gap-2'>
+                <span className='w-4 h-4 shadow-xl rounded-full bg-purple block'></span> <p className='text-white text-sm'>Checked</p>
+                <span className='w-4 h-4 shadow-xl rounded-full bg-[#28503D] block'></span> <p className='text-white text-sm'>New Messages</p>
+                <span className='w-4 h-4 shadow-xl rounded-full bg-[#313131] block'></span> <p className='text-white text-sm'>Archive</p>
+                <span className='w-4 h-4 shadow-xl rounded-full bg-[#964B21] block'></span> <p className='text-white text-sm'>Cluster Name</p>
             </div>
         </div>
     )
