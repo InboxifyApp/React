@@ -58,7 +58,9 @@ const SignIn = () =>{
                     <p className='text-white font-bold p-2 '>Welcome Back</p>
                 </div>
                 <div className='w-1/2  h-auto '>
-                    <ChakraUI.FormControl className='flex flex-col gap-y-4 items-leftr'>
+                    <ChakraUI.FormControl className='flex flex-col gap-y-4 items-left' onSubmit={()=>{
+                        
+                    }}>
                         <p className='text-white font-bold text-3xl pb-5'>SignIn</p>
                         <Components.Input Type="email" Placeholder="Email Or Username" Class="w-full h-auto"
                             Value={username}

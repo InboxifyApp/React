@@ -7,14 +7,13 @@ const MessagesTab = ({...props}) =>{
     return (
         <div className='w-full h-screen overflow-auto pb-10'>
             <SearchBox/>
-                <Components.TableRow Viewed={true}/>
                 {
                     
                     messages.map((data:any, index:any) => {
                         return (
                             <>
                             {cl = cl ? false : true}
-                            <Components.TableRow Viewed={cl} MSG={data} key={index}/>
+                                <Components.TableRow Viewed={cl} MSG={data} key={index}/>
                             </>
                         )
                          

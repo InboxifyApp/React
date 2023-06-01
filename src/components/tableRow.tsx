@@ -27,7 +27,6 @@ const TableRow = ({...props}) =>{
             <span className='text-white py-3 pr-10 text-sm'>
                 {
 
-                    //if the message is bigger than 100 chars ,sekect only 100 chars and add three dots 
 
                     props.MSG ? props.MSG.message.length > 30 ? props.MSG.message.substring(0, 30) + "..." : props.MSG.message : ""
                 }

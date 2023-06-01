@@ -5,7 +5,9 @@ import useGetDatas from '../hooks/getUser'
 import * as SVG from './../components/svg'
 import { Link } from 'react-router-dom'
 import MessagesTab from '../components/all.messages.tab'
+import Clusters from '../components/Clusters'
 const Me = () =>{
+    const [deFault, setDef] :any= React.useState(<MessagesTab/>)
     const [cookie, setCookie, removeCookie] = Cookie.useCookies()
 
     const {datas, getDatas} = useGetDatas(localStorage.getItem("token")) 
@@ -33,8 +35,21 @@ const Me = () =>{
                     }</p>
                 </div>  
                 <div className='w-full flex flex-col    '>
-                <Link to={""}className='text-white w-full py-4 bg-darg bg-[#6F0A1A] pl-4'>Home : All Clusters</Link>
-                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>My Clusters</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg  pl-4'
+                onClick={()=>{
+
+
+                    setDef(<MessagesTab/>)
+                }}
+                
+                >Home : All Messages</Link>
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'
+                
+                    onClick= {()=>{
+
+                        setDef(<Clusters/>)
+                    }}
+                >My Clusters</Link>
                 <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>My Account Settings</Link>
                 <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500' >Home : All Clusters</Link>
                 <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'>API KEY & Docs</Link>
@@ -51,7 +66,9 @@ const Me = () =>{
                 </div>
             </aside>
             <aside className='w-3/4 h-full '>
-                <MessagesTab/>
+                {
+                    deFault
+                }
             </aside>
         </div>
         )
