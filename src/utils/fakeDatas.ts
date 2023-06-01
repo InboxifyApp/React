@@ -154,68 +154,73 @@ const messages =
 
 
 
-const clusterData = [
-    {
-      id: 123,
-      name: "Cluster A",
-      domain: "example.com",
-      description: "This is Cluster A",
-      image: "http://example.com/images/clusterA.jpg",
-      created_at: "2022-01-15T09:30:00Z",
-      updated_at: "2022-01-15T15:45:00Z",
-      owner: 456
-    },
-    {
-      id: 234,
-      name: "Cluster B",
-      domain: "example.com",
-      description: "This is Cluster B",
-      image: "http://example.com/images/clusterB.jpg",
-      created_at: "2022-03-22T14:10:00Z",
-      updated_at: "2022-03-23T09:20:00Z",
-      owner: 789
-    },
-    {
-      id: 345,
-      name: "Cluster C",
-      domain: "example.com",
-      description: "This is Cluster C",
-      image: "http://example.com/images/clusterC.jpg",
-      created_at: "2022-05-08T11:20:00Z",
-      updated_at: "2022-05-09T17:30:00Z",
-      owner: 123
-    },
-    {
-      id: 456,
-      name: "Cluster D",
-      domain: "example.com",
-      description: "This is Cluster D",
-      image: "http://example.com/images/clusterD.jpg",
-      created_at: "2022-07-14T16:55:00Z",
-      updated_at: "2022-07-15T10:05:00Z",
-      owner: 234
-    },
-    {
-      id: 567,
-      name: "Cluster E",
-      domain: "example.com",
-      description: "This is Cluster E",
-      image: "http://example.com/images/clusterE.jpg",
-      created_at: "2022-09-30T08:40:00Z",
-      updated_at: "2022-09-30T14:55:00Z",
-      owner: 567
-    },
-    {
-      id: 678,
-      name: "Cluster F",
-      domain: "example.com",
-      description: "This is Cluster F",
-      image: "http://example.com/images/clusterF.jpg",
-      created_at: "2022-11-27T12:15:00Z",
-      updated_at: "2022-11-28T07:25:00Z",
-      owner: 890
-    }
-  
-  
-]
+      const clusterData = [
+        {
+          id: 123,
+          name: "Cluster A",
+          domain: "example.com",
+          description: "This is Cluster A",
+          image: "http://example.com/images/clusterA.jpg",
+          created_at: "2022-01-15T09:30:00Z",
+          updated_at: "2022-01-15T15:45:00Z",
+          owner: 456,
+          color: "#FF0000" // Manually added color
+        },
+        {
+          id: 234,
+          name: "Cluster B",
+          domain: "example.com",
+          description: "This is Cluster B",
+          image: "http://example.com/images/clusterB.jpg",
+          created_at: "2022-03-22T14:10:00Z",
+          updated_at: "2022-03-23T09:20:00Z",
+          owner: 789,
+          color: "#00FF00" // Manually added color
+        },
+        {
+          id: 345,
+          name: "Cluster C",
+          domain: "example.com",
+          description: "This is Cluster C",
+          image: "http://example.com/images/clusterC.jpg",
+          created_at: "2022-05-08T11:20:00Z",
+          updated_at: "2022-05-09T17:30:00Z",
+          owner: 123,
+          color: "#0000FF" // Manually added color
+        },
+        {
+          id: 456,
+          name: "Cluster D",
+          domain: "example.com",
+          description: "This is Cluster D",
+          image: "http://example.com/images/clusterD.jpg",
+          created_at: "2022-07-14T16:55:00Z",
+          updated_at: "2022-07-15T10:05:00Z",
+          owner: 234,
+          color: "#FFFF00" // Manually added color
+        },
+        {
+          id: 567,
+          name: "Cluster E",
+          domain: "example.com",
+          description: "This is Cluster E",
+          image: "http://example.com/images/clusterE.jpg",
+          created_at: "2022-09-30T08:40:00Z",
+          updated_at: "2022-09-30T14:55:00Z",
+          owner: 567,
+          color: "#FF00FF" // Manually added color
+        },
+        {
+          id: 678,
+          name: "Cluster F",
+          domain: "example.com",
+          description: "This is Cluster F",
+          image: "http://example.com/images/clusterF.jpg",
+          created_at: "2022-11-27T12:15:00Z",
+          updated_at: "2022-11-28T07:25:00Z",
+          owner: 890,
+          color: "#00FFFF" // Manually added color
+        }
+      ];
+      
 export {messages, clusterData}
