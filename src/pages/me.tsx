@@ -35,7 +35,7 @@ const Me = () =>{
                     }</p>
                 </div>  
                 <div className='w-full flex flex-col    '>
-                <Link to={""}className='text-white w-full py-4 bg-darg  pl-4'
+                <Link to={""}className='text-white w-full py-4 hover:bg-[#6F0A1A] pl-4'
                 onClick={()=>{
 
 
@@ -43,7 +43,7 @@ const Me = () =>{
                 }}
                 
                 >Home : All Messages</Link>
-                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500'
+                <Link to={""}className='text-white w-full py-4 bg-darg pl-4 hover:bg-[#6F0A1A] duration-500 bg-none'
                 
                     onClick= {()=>{
 

@@ -5,9 +5,12 @@ import axios from 'axios'
 const useSearch = () =>{
     const [filter, setFilter] : any = React.useState([])
     const [search, setSearch] : any  = React.useState("")
-    const sendKeyword = async () =>{
-
+    const [result, setResult] : any = React.useState([])
+    const sendKeyword = async (datas : any) =>{
+        //datas is our array 
+        
     }
+
 
     return {
         filter, setFilter , search , setSearch

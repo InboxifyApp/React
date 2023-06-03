@@ -2,6 +2,7 @@ import * as React from 'react'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
 import {clusterData} from './../utils/fakeDatas'
+import Modal from './Modal'
 const Clusters = ({...props}) =>{
     console.log(clusterData)
     return (
@@ -24,6 +25,22 @@ const Clusters = ({...props}) =>{
                     
                 }
             </div>
+
+
+            <div className='fixed right-2 bottom-2'>
+                <button className='text-white px-5 py-3 shadow-sm rounded-full bg-purple' title='Add Cluster'>
+                    +
+                </button>
+            </div>
+
+
+
+                <Modal Vis={"block"} >
+
+                    hello world
+
+                </Modal>
+            
         </div>
     )
 }
