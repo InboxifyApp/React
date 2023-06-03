@@ -38,7 +38,19 @@ const Clusters = ({...props}) =>{
 
                 <Modal Vis={vis} setVis={setVis} >
 
-                    hello world
+                    <div className='w-full h-auto px-20'>
+                        <p className='font-bold text-[#1d1d1d]'>Add new Cluster</p>
+                        <ChakraUI.FormControl className='gap-2 pt-5'>
+                            <Components.Input Type="text" Placeholder="Name of the cluster" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto"/>
+                            <Components.Input Type="text" Placeholder="Domain of the cluster" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
+                            <Components.Input Type="text" Placeholder="Description" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
+                            <Components.Input Type="color" Placeholder="Description" Class="w-full custom-color-input h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
+
+                            <button className='bg-purple block m-auto shadow   mt-2 px-10 py-2 rounded text-white text-sm'>
+                                Add Cluster
+                            </button>
+                        </ChakraUI.FormControl>
+                    </div>
 
                 </Modal>
             
