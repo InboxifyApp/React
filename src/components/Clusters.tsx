@@ -4,7 +4,8 @@ import * as Components from './../components/components'
 import {clusterData} from './../utils/fakeDatas'
 import Modal from './Modal'
 const Clusters = ({...props}) =>{
-    console.log(clusterData)
+
+    const [vis, setVis] : any = React.useState("hidden")
     return (
         <div className='w-full h-full pt-10'>
             <ChakraUI.FormControl className='flex w-full pl-10 m-auto justify-center'>
@@ -28,14 +29,14 @@ const Clusters = ({...props}) =>{
 
 
             <div className='fixed right-2 bottom-2'>
-                <button className='text-white px-5 py-3 shadow-sm rounded-full bg-purple' title='Add Cluster'>
+                <button className='text-white px-5 py-3 shadow-sm rounded-full bg-purple' title='Add Cluster' onClick={()=>{setVis("block")}}>
                     +
                 </button>
             </div>
 
 
 
-                <Modal Vis={"block"} >
+                <Modal Vis={vis} setVis={setVis} >
 
                     hello world
 
