@@ -38,10 +38,17 @@ const Clusters = ({...props}) =>{
 
                 <Modal Vis={vis} setVis={setVis} >
 
-                    <div className='w-full h-auto px-20'>
-                        <p className='font-bold text-[#1d1d1d]'>Add new Cluster</p>
-                        <ChakraUI.FormControl className='gap-2 pt-5'>
-                            <Components.Input Type="text" Placeholder="Name of the cluster" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto"/>
+                    <div className='w-full h-auto px-5'>
+                        <p className='font-bold text-white flex items-center justify-between w-full'><p>Add new Cluster</p>
+                        <button className='text-white shadow-sm rounded-full ' title='Add Cluster' onClick={
+
+                            ()=>{setVis("hidden")   }
+                        }>
+                            x
+                        </button>
+                        </p>
+                        <ChakraUI.FormControl className='gap-2 pt-5 px-14'>
+                            <Components.Input Type="text" Placeholder="Name of the cluster" Class="w-full h-auto w-3/5 m-auto"/>
                             <Components.Input Type="text" Placeholder="Domain of the cluster" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
                             <Components.Input Type="text" Placeholder="Description" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
                             <Components.Input Type="color" Placeholder="Description" Class="w-full custom-color-input h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
