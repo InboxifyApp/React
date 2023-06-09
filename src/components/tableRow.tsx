@@ -28,7 +28,7 @@ const TableRow = ({...props}) =>{
                 {
 
 
-                    props.MSG ? props.MSG.message.length > 30 ? props.MSG.message.substring(0, 30) + "..." : props.MSG.message : ""
+                    props.MSG ? props.MSG.message.length > 20 ? props.MSG.message.substring(0, 20) + "..." : props.MSG.message : ""
                 }
             </span>
             <div>

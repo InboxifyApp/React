@@ -2,8 +2,23 @@ import * as React from 'react'
 import * as ChakraUI from '@chakra-ui/react'
 import * as Components from './../components/components'
 import {clusterData} from './../utils/fakeDatas'
+import useCluster from '../hooks/useCluster'
 import Modal from './Modal'
 const Clusters = ({...props}) =>{
+
+    const {
+        name,
+        setName,
+        domain,
+        setDomain,
+        description,
+        setDescription,
+        color,
+        setColor, 
+        Save
+
+    } = useCluster()
+    
 
     const [vis, setVis] : any = React.useState("hidden")
     return (
@@ -39,21 +54,46 @@ const Clusters = ({...props}) =>{
                 <Modal Vis={vis} setVis={setVis} >
 
                     <div className='w-full h-auto px-5'>
-                        <p className='font-bold text-white flex items-center justify-between w-full'><p>Add new Cluster</p>
-                        <button className='text-white shadow-sm rounded-full ' title='Add Cluster' onClick={
-
-                            ()=>{setVis("hidden")   }
-                        }>
-                            x
-                        </button>
-                        </p>
+                        <p className='font-bold text-white flex items-center justify-center w-full'>Add new Cluster</p>
                         <ChakraUI.FormControl className='gap-2 pt-5 px-14'>
-                            <Components.Input Type="text" Placeholder="Name of the cluster" Class="w-full h-auto w-3/5 m-auto"/>
-                            <Components.Input Type="text" Placeholder="Domain of the cluster" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
-                            <Components.Input Type="text" Placeholder="Description" Class="w-full h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
-                            <Components.Input Type="color" Placeholder="Description" Class="w-full custom-color-input h-auto bg-[#e1e1e1] w-3/5 text-[#1d1d1d] m-auto block mt-2"/>
+                            <Components.Input Type="text" Placeholder="Name of the cluster" Class=" h-auto w-3/5 m-auto"
+                                value={name}
+                                onChange={(e:any)=>{setName(e.target.value)}}                                
+                            />
+                            <Components.Input Type="text" Placeholder="Domain of the cluster" Class=" h-auto  w-3/5  m-auto block mt-2"
+                                value={domain}
+                                onChange={(e:any)=>{setDomain(e.target.value)}}
 
-                            <button className='bg-purple block m-auto shadow   mt-2 px-10 py-2 rounded text-white text-sm'>
+                            />
+                            <Components.Input Type="text" Placeholder="Description" Class=" h-auto  w-3/5 m-auto block mt-2"
+                                value={description}
+                                onChange={(e:any)=>{setDescription(e.target.value)}}
+                            />
+
+                            
+                            <div className={`w-2/4 py-2 m-auto   mt-2  rounded`}
+                                style={{backgroundColor:color}}
+                            >
+
+                            <Components.Input Type="color" Placeholder="Description" Class=" custom-color-input h-auto  w-auto m-auto block mt-2"
+                                value={color}
+                                onChange={(e:any)=>{
+                                    setColor(e.target.value)
+                                    console.log(color)
+                                }
+                                    
+                                }
+                            />
+
+                            <p className='text-white'>Change the color</p>
+                            </div>
+                            <button className='bg-purple block m-auto shadow   mt-2 px-10 py-2 rounded text-white text-sm'
+                                
+                                onClick={()=>{  
+                                    Save()
+                                
+                                }}
+                            >
                                 Add Cluster
                             </button>
                         </ChakraUI.FormControl>

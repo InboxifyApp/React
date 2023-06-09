@@ -9,7 +9,7 @@ const Modal = ({...props}) =>{
             <button className='text-[#b7b4b4] fixed right-4 top-3 text-xl'
                 onClick={()=>{props.setVis("hidden")}}
             >x</button>
-            <div className={`w-2/3 h-auto bg-dark  ${props.Style} rounded shadow-sm py-10`}>
+            <div className={`w-full h-full bg-dark  ${props.Style} rounded shadow-sm py-2 pb-5 flex items-center justify-center px-10`}>
 
                 {props.children}
 
