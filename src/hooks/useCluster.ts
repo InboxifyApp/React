@@ -6,12 +6,12 @@ const useCluster = ()=>{
     const [domain, setDomain] = React.useState("")
     const [description, setDescription] = React.useState("")
     const [color, setColor] : any = React.useState("#962134")
+    const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/cluster/`
+    const header :string = import.meta.env.VITE_API
 
 
 
     const Save = async () =>{
-        const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/cluster/`
-        const header :string = import.meta.env.VITE_API
         const reqBdy = {
             name : name, 
             domain : domain,
@@ -44,6 +44,25 @@ const useCluster = ()=>{
 
     }
 
+
+
+    const GetAll = async () =>{
+        axios.get(
+            target,
+            {
+                headers : {  
+                'api_key' : header,
+                'token':localStorage.getItem("token")
+
+            }
+        }
+        ).then(res=>{
+            console.log(",", res)
+        }).catch(e=>{
+            console.log(e)
+        })
+    }
+
     return {
         name,
         setName,
@@ -53,7 +72,8 @@ const useCluster = ()=>{
         setDescription,
         color,
         setColor, 
-        Save
+        Save, 
+        GetAll
 
     }
 }

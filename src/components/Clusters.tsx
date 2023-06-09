@@ -15,12 +15,19 @@ const Clusters = ({...props}) =>{
         setDescription,
         color,
         setColor, 
-        Save
+        Save,
+        GetAll
 
     } = useCluster()
     
 
     const [vis, setVis] : any = React.useState("hidden")
+
+
+    React.useEffect(()=>{
+    
+        GetAll()
+    },[])
     return (
         <div className='w-full h-full pt-10'>
             <ChakraUI.FormControl className='flex w-full pl-10 m-auto justify-center'>
