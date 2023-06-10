@@ -6,6 +6,7 @@ import * as SVG from './../components/svg'
 import { Link } from 'react-router-dom'
 import MessagesTab from '../components/all.messages.tab'
 import Clusters from '../components/Clusters'
+import Loader from '../components/Loader'
 const Me = () =>{
     const [deFault, setDef] :any= React.useState(<MessagesTab/>)
     const [cookie, setCookie, removeCookie] = Cookie.useCookies()
@@ -70,6 +71,9 @@ const Me = () =>{
                     deFault
                 }
             </aside>
+
+
+            
         </div>
         )
 }

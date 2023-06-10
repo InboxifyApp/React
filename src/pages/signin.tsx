@@ -10,6 +10,8 @@ import * as Cookies from 'react-cookie'
 import dataFrame from './../assets/p.json'
 import Lottie from 'lottie-react'
 const SignIn = () =>{
+
+        const [Hid, setHid] = React.useState("hidden")
         const pRef = React.useRef()
         const [cookie, setCookie, removeCookie] = Cookies.useCookies()
 
@@ -74,6 +76,9 @@ const SignIn = () =>{
                             <Router.Link to={""} className='text-white underline text-sm py-2 '>Forgot Password ?</Router.Link>
                             <ChakraUI.Button 
                             onClick={async ()=>{
+                                setHid("")
+                                //set timeout 
+                                await new Promise(resolve => setTimeout(resolve, 1000));
                                 const checks : any = checkLogin()
                                 if (checks.length > 0) {
                                     checks.map((check : any) => {
@@ -99,7 +104,9 @@ const SignIn = () =>{
 
                                     })
 
-                                }      
+                                }    
+                                
+                                setHid("hidden")
                             }}
                             className='w-auto px-10 h-auto p-2 text-sm rounded bg-purple  outline-none border border-purple duration-200  text-white  shadow-5xl'>
                                 SignIn 
@@ -114,6 +121,10 @@ const SignIn = () =>{
                         </p>
                     </Components.Omsg>
             </aside>
+            
+            <Components.Loader
+                Hid={Hid}
+            />
         </div>
     )
 }
