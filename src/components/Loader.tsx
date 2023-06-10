@@ -12,7 +12,7 @@ const Loader = ({...props}) =>{
                         height:170
             }} />
 
-            <p className="text-white text-xl font-bold">Loading...</p>
+            <p className="text-white text-xl font-bold">{props.MSG}</p>
         </div>
     )
 

@@ -6,6 +6,8 @@ const useCluster = ()=>{
     const [domain, setDomain] = React.useState("")
     const [description, setDescription] = React.useState("")
     const [color, setColor] : any = React.useState("#962134")
+
+    const [clusters, setClusters] : any = React.useState([])
     const target: string = `http://${import.meta.env.VITE_TARGET_BACKEND}:3001/cluster/`
     const header :string = import.meta.env.VITE_API
 
@@ -48,16 +50,17 @@ const useCluster = ()=>{
 
     const GetAll = async () =>{
         axios.get(
-            target,
+            target, 
             {
                 headers : {  
                 'api_key' : header,
-                'token':localStorage.getItem("token")
+                "authorization" : "Bearer" + localStorage.getItem("token")
 
             }
         }
         ).then(res=>{
-            console.log(",", res)
+            console.log(",",res)
+            setClusters(res.data)
         }).catch(e=>{
             console.log(e)
         })
@@ -73,7 +76,9 @@ const useCluster = ()=>{
         color,
         setColor, 
         Save, 
-        GetAll
+        GetAll,
+        clusters
+        
 
     }
 }

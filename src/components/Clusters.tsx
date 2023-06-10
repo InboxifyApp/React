@@ -16,7 +16,8 @@ const Clusters = ({...props}) =>{
         color,
         setColor, 
         Save,
-        GetAll
+        GetAll,
+        clusters
 
     } = useCluster()
     
@@ -28,6 +29,8 @@ const Clusters = ({...props}) =>{
     
         GetAll()
     },[])
+
+    console.log(clusters)
     return (
         <div className='w-full h-full pt-10'>
             <ChakraUI.FormControl className='flex w-full pl-10 m-auto justify-center'>
@@ -40,7 +43,7 @@ const Clusters = ({...props}) =>{
                 <Components.ClusterBox Data={{}}  />
                 <Components.ClusterBox Data={{}} />
                 {   
-                clusterData.map((data:any, index:any) =>{
+                clusters.map((data:any, index:any) =>{
                     return (
                         <Components.ClusterBox Data={data} key={index}/>
                     )
@@ -82,7 +85,7 @@ const Clusters = ({...props}) =>{
                                 style={{backgroundColor:color}}
                             >
 
-                            <Components.Input Type="color" Placeholder="Description" Class=" custom-color-input h-auto  w-auto m-auto block mt-2"
+                            <Components.Input Type="color" Placeholder="Description" Class=" m-auto bg-none block mt-2"
                                 value={color}
                                 onChange={(e:any)=>{
                                     setColor(e.target.value)

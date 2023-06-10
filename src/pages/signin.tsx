@@ -124,6 +124,7 @@ const SignIn = () =>{
             
             <Components.Loader
                 Hid={Hid}
+                MSG={"Logging In..."}
             />
         </div>
     )
