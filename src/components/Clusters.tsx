@@ -30,7 +30,7 @@ const Clusters = ({...props}) =>{
         GetAll()
     },[])
 
-    console.log(clusters)
+    console.log("cls", clusters)
     return (
         <div className='w-full h-full pt-10'>
             <ChakraUI.FormControl className='flex w-full pl-10 m-auto justify-center'>
@@ -40,8 +40,7 @@ const Clusters = ({...props}) =>{
 
             <div className="w-full h-auto overflow-auto flex items-center justify-center gap-2 flex-wrap pt-10">
 
-                <Components.ClusterBox Data={{}}  />
-                <Components.ClusterBox Data={{}} />
+                
                 {   
                 clusters.map((data:any, index:any) =>{
                     return (
@@ -64,7 +63,7 @@ const Clusters = ({...props}) =>{
                 <Modal Vis={vis} setVis={setVis} >
 
                     <div className='w-full h-auto px-5'>
-                        <p className='font-bold text-white flex items-center justify-center w-full'>Add new Cluster</p>
+                        <p className='font-bold text-white flex items-center justify-center w-full text-3xl py-3'>Add new Cluster</p>
                         <ChakraUI.FormControl className='gap-2 pt-5 px-14'>
                             <Components.Input Type="text" Placeholder="Name of the cluster" Class=" h-auto w-3/5 m-auto"
                                 value={name}

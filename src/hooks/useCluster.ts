@@ -54,13 +54,12 @@ const useCluster = ()=>{
             {
                 headers : {  
                 'api_key' : header,
-                "authorization" : "Bearer" + localStorage.getItem("token")
+                "authorization" : "Bearer " + localStorage.getItem("token")
 
             }
         }
         ).then(res=>{
-            console.log(",",res)
-            setClusters(res.data)
+            setClusters(  res.data)
         }).catch(e=>{
             console.log(e)
         })
