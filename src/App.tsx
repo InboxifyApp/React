@@ -4,7 +4,6 @@ import * as Pages from './pages/pages'
 import * as Toast from 'react-hot-toast'
 
 
-console.log(JSON.stringify(import.meta.env.VITE_API))
 const App = () =>{
   return (
     <DOMRouter.BrowserRouter>
@@ -13,6 +12,8 @@ const App = () =>{
         <DOMRouter.Route path="/signin" element={<Pages.SignIn/>} />
         <DOMRouter.Route path='/signup' element={<Pages.SignUp/>} />
         <DOMRouter.Route path='/me' element={<Pages.Me/>} />
+        <DOMRouter.Route path='/send' element={<Pages.SendErr/>} />
+        <DOMRouter.Route path='/send/:id' element={<Pages.Send/>} />
       </DOMRouter.Routes>
 
       <Toast.Toaster
